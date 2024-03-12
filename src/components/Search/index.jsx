@@ -1,8 +1,8 @@
-import SearchInput from "./index.styles";
+import SearchWrapper from "./index.styles";
 
 const Search = () => (
-  <form>
-    <SearchInput type="Search" placeholder="Search..." aria-label="search" />
-  </form>
+  <SearchWrapper>
+    <input type="text" placeholder="Search..." />
+  </SearchWrapper>
 );
 export default Search;

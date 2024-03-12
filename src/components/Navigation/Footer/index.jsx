@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import { NavFooter } from "../index.styles";
 
 const FooterNav = () => (
-  <nav>
+  <NavFooter>
     <Link to="/">Home</Link>
     <Link to="/contact">Contact Us</Link>
     <Link to="/cart">Cart</Link>
-  </nav>
+  </NavFooter>
 );
 
 export default FooterNav;

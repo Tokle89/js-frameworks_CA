@@ -1,13 +1,15 @@
 import HeaderNav from "../../Navigation/Header";
-import Search from "../../Search";
-import StyledHeader from "./index.styles";
-import Logo from "../../logo";
+
+import { HeaderFooterWrapper } from "../index.styles";
+
+import Logo from "../../Logo";
 
 const Header = () => (
-  <StyledHeader>
-    <Logo />
-    <Search />
-    <HeaderNav />
-  </StyledHeader>
+  <header>
+    <HeaderFooterWrapper>
+      <Logo />
+      <HeaderNav />
+    </HeaderFooterWrapper>
+  </header>
 );
 export default Header;
