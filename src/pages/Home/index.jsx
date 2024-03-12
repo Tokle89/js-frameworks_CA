@@ -1,7 +1,8 @@
 import useFetch from "../../hooks/useFetch";
+import { StyledH1, ProductContainer } from "./index.styles";
 
 const Home = () => {
-  const { data, isLoading, isError } = useFetch("https://jsonplaceholder.typicode.com/posts");
+  const { data, isLoading, isError } = useFetch("https://api.noroff.dev/api/v1/online-shop");
 
   let content;
 
@@ -10,18 +11,12 @@ const Home = () => {
   } else if (isLoading) {
     content = <p>Loading...</p>;
   } else {
-    content = (
-      <ul>
-        {data.map((post) => (
-          <li key={post.id}>{post.title}</li>
-        ))}
-      </ul>
-    );
+    content = data.map((post) => <p key={post.id}>{post.title}</p>);
   }
   return (
     <main>
-      <h1>Home</h1>
-      <div>{content}</div>
+      <StyledH1>Home</StyledH1>
+      <ProductContainer>{content}</ProductContainer>
     </main>
   );
 };
