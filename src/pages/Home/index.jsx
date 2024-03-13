@@ -1,5 +1,6 @@
 import useFetch from "../../hooks/useFetch";
-import { StyledH1, ProductContainer } from "./index.styles";
+import { Main } from "./index.styles";
+import Card from "../../components/Card";
 
 const Home = () => {
   const { data, isLoading, isError } = useFetch("https://api.noroff.dev/api/v1/online-shop");
@@ -11,13 +12,13 @@ const Home = () => {
   } else if (isLoading) {
     content = <p>Loading...</p>;
   } else {
-    content = data.map((post) => <p key={post.id}>{post.title}</p>);
+    content = data.map((post) => <Card data={post} key={post.id}></Card>);
   }
   return (
-    <main>
-      <StyledH1>Home</StyledH1>
-      <ProductContainer>{content}</ProductContainer>
-    </main>
+    <Main>
+      <h1>Home</h1>
+      <div>{content}</div>
+    </Main>
   );
 };
 export default Home;

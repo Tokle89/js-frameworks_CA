@@ -18,7 +18,6 @@ body {
 
 main {
     background: var(--color-tertiary);
-    color: var(--color-secondary);
     max-width: 1250px;
     margin: 0 auto;
     padding:50px 0;
@@ -33,7 +32,18 @@ h1,h2,h3,h4,h5,h6{
   font-family: var(--font-header);
   font-weight: 400;
 }
-
+p, a, button{
+  font-size:1.1em;
+}
+img{
+  width:100%;
+  
+  object-fit:cover;
+ 
+}
+svg{
+  cursor:pointer;
+}
 `;
 
 export default GlobalStyles;
