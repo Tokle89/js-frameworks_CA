@@ -1,11 +1,13 @@
 import useFetch from "../../hooks/useFetch";
 import { Main } from "./index.styles";
 import Card from "../../components/Card";
+import url from "../../constants/url";
 
 const Home = () => {
-  const { data, isLoading, isError } = useFetch("https://api.noroff.dev/api/v1/online-shop");
+  const { data, isLoading, isError } = useFetch(url);
 
   let content;
+  console.log(data);
 
   if (isError) {
     content = <p>Error</p>;
@@ -16,7 +18,8 @@ const Home = () => {
   }
   return (
     <Main>
-      <h1>Home</h1>
+      <h1>Shopping made easy</h1>
+      <h2>Products:</h2>
       <div>{content}</div>
     </Main>
   );

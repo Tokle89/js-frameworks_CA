@@ -6,7 +6,7 @@ import { LayoutWrapper } from "./index.styles";
 const Layout = () => (
   <LayoutWrapper>
     <Header />
-    <Outlet></Outlet>
+    <Outlet />
     <Footer />
   </LayoutWrapper>
 );

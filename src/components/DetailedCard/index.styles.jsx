@@ -1,0 +1,63 @@
+import styled from "styled-components";
+import { Flex, FlexColumn } from "../../styles/Flex";
+
+export const ProductContainer = styled(Flex)`
+  max-width: 1250px;
+  width: 100%;
+  display: flex;
+  > * {
+    flex: 1;
+  }
+  img {
+    height: 100%;
+  }
+  h1,
+  p,
+  button {
+    margin: 15px 0;
+  }
+`;
+
+export const InfoContainer = styled(FlexColumn)`
+  background: var(--color-secondary);
+  justify-content: center;
+  padding: 15px;
+`;
+
+export const HeaderContainer = styled(Flex)`
+  svg {
+    color: #fedc00;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 20px;
+    font-size: 1.5em;
+  }
+`;
+
+export const DiscountedPrice = styled(Flex)`
+  gap: 50px;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  p:first-of-type {
+    text-decoration: line-through;
+    color: red;
+  }
+`;
+
+export const ReviewContainer = styled.div`
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  div {
+    align-items: center;
+    p {
+      margin: 0;
+    }
+  }
+`;

@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { FaStar } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
-import { StyledCard, InfoContainer, ImgContainer, RatingContainer, BtnContainer, StyledButton, DiscountedPrice } from "./index.styles";
+import { StyledCard, InfoContainer, ImgContainer, RatingContainer, BtnContainer, DiscountedPrice } from "./index.styles";
+import { StyledButton } from "../Button/index.styles";
 import { Link } from "react-router-dom";
 
 const Card = ({ data }) => {
@@ -12,7 +13,7 @@ const Card = ({ data }) => {
         <img src={imageUrl} alt={title} />
       </ImgContainer>
       <InfoContainer>
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <RatingContainer>
           <FaStar />
           <p>{rating}</p>

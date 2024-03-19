@@ -1,6 +1,7 @@
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
+import Details from "./pages/details";
 
 const Contact = () => (
   <div>
@@ -12,14 +13,7 @@ const Cart = () => (
     <h1>Cart</h1>
   </div>
 );
-const Product = () => {
-  let params = useParams();
-  return (
-    <div>
-      <h1>Product {params.id}</h1>
-    </div>
-  );
-};
+
 function App() {
   return (
     <>
@@ -28,7 +22,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="contact" element={<Contact />} />
           <Route path="cart" element={<Cart />} />
-          <Route path="products/:id" element={<Product />} />
+          <Route path="products/:id" element={<Details />} />
         </Route>
       </Routes>
     </>

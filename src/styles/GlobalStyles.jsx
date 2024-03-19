@@ -32,12 +32,14 @@ h1,h2,h3,h4,h5,h6{
   font-family: var(--font-header);
   font-weight: 400;
 }
+h2,h3,h4{
+  font-size:1.5em;
+}
 p, a, button{
   font-size:1.1em;
 }
 img{
   width:100%;
-  
   object-fit:cover;
  
 }

@@ -43,21 +43,6 @@ export const BtnContainer = styled(JustifiedSpaceBetween)`
   align-items: center;
 `;
 
-export const StyledButton = styled.button`
-  height: 40px;
-  width: 120px;
-  border-radius: 5px;
-  color: var(--color-primary);
-  background: var(--color-secondary);
-  border: 1px solid var(--color-primary);
-  transition: 0.4s;
-  cursor: pointer;
-
-  :hover {
-    background: var(--color-primary);
-    color: var(--color-secondary);
-  }
-`;
 export const DiscountedPrice = styled(JustifiedSpaceBetween)`
   p:first-of-type {
     text-decoration: line-through;
