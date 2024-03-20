@@ -4,7 +4,7 @@ import { useCartStore } from "../../store";
 
 const Counter = ({ CartItem, onCountChange }) => {
   const setProductCount = useCartStore((state) => state.setProductCount);
-  const [count, setCount] = useState(CartItem.Count || 0);
+  const [count, setCount] = useState(CartItem.Count || 1);
   let plusCount = 1;
   let minusCount = 1;
   const handlePlus = () => {
