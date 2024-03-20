@@ -1,6 +1,6 @@
 import { FaStar } from "react-icons/fa";
 import { StyledButton } from "../Button/index.styles";
-import { ProductContainer, InfoContainer, HeaderContainer, DiscountedPrice, ReviewContainer } from "./index.styles";
+import { ProductContainer, InfoContainer, HeaderContainer, DiscountedPrice, ReviewCards, ReviewContainer } from "./index.styles";
 
 /* eslint-disable react/prop-types */
 const Product = ({ product }) => {
@@ -33,12 +33,12 @@ const Product = ({ product }) => {
           )}
         </div>
         <StyledButton>Add to cart</StyledButton>
-        <div>
+        <ReviewContainer>
           <p>Reviews:</p>
 
           {reviews &&
             reviews.map((review) => (
-              <ReviewContainer key={review.id}>
+              <ReviewCards key={review.id}>
                 <HeaderContainer>
                   <h3>{review.username}</h3>
                   <div>
@@ -47,9 +47,9 @@ const Product = ({ product }) => {
                   </div>
                 </HeaderContainer>
                 <p>{review.description}</p>
-              </ReviewContainer>
+              </ReviewCards>
             ))}
-        </div>
+        </ReviewContainer>
       </InfoContainer>
     </ProductContainer>
   );

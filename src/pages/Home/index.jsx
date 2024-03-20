@@ -7,7 +7,6 @@ const Home = () => {
   const { data, isLoading, isError } = useFetch(url);
 
   let content;
-  console.log(data);
 
   if (isError) {
     content = <p>Error</p>;

@@ -4,9 +4,12 @@ import { FaCartShopping } from "react-icons/fa6";
 import { StyledCard, InfoContainer, ImgContainer, RatingContainer, BtnContainer, DiscountedPrice } from "./index.styles";
 import { StyledButton } from "../Button/index.styles";
 import { Link } from "react-router-dom";
+import { useCartStore } from "../../store";
 
 const Card = ({ data }) => {
   let { title, price, imageUrl, rating, id, discountedPrice } = data;
+  const addProduct = useCartStore((state) => state.addProduct);
+
   return (
     <StyledCard>
       <ImgContainer>
@@ -30,7 +33,7 @@ const Card = ({ data }) => {
         <BtnContainer>
           <FaCartShopping
             onClick={() => {
-              console.log("working");
+              addProduct(data);
             }}
           />
           <Link to={`/products/${id}`}>

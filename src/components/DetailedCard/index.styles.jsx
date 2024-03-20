@@ -16,6 +16,9 @@ export const ProductContainer = styled(Flex)`
   button {
     margin: 15px 0;
   }
+  @media (max-width: 920px) {
+    flex-direction: column;
+  }
 `;
 
 export const InfoContainer = styled(FlexColumn)`
@@ -46,14 +49,19 @@ export const DiscountedPrice = styled(Flex)`
     color: red;
   }
 `;
-
-export const ReviewContainer = styled.div`
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+export const ReviewContainer = styled(Flex)`
+  flex-wrap: wrap;
+  gap: 10px;
+  p:first-of-type {
+    order: -1;
+    flex-basis: 100%;
+  }
+`;
+export const ReviewCards = styled.div`
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
   border-radius: 5px;
   padding: 10px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  max-width: 300px;
   div {
     align-items: center;
     p {
