@@ -9,6 +9,11 @@ const Contact = () => (
     <h1>Contact</h1>
   </div>
 );
+const CheckOut = () => (
+  <div>
+    <h1>Checkout</h1>
+  </div>
+);
 
 function App() {
   return (
@@ -19,6 +24,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="cart" element={<Cart />} />
           <Route path="products/:id" element={<Details />} />
+          <Route path="checkout" element={<CheckOut />} />
         </Route>
       </Routes>
     </>

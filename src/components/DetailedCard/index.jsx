@@ -1,16 +1,24 @@
 import { FaStar } from "react-icons/fa";
 import { StyledButton } from "../Button/index.styles";
 import { ProductContainer, InfoContainer, HeaderContainer, DiscountedPrice, ReviewCards, ReviewContainer } from "./index.styles";
+import { useState } from "react";
+import ScreenMsg from "../ScreenMsg";
+import { useCartStore } from "../../store";
 
 /* eslint-disable react/prop-types */
 const Product = ({ product }) => {
-  // console.log(product);
+  const addProduct = useCartStore((state) => state.addProduct);
+  const [displayMsg, setDisplayMsg] = useState(false);
+  const HandleMsgState = () => {
+    setDisplayMsg(true);
+    setTimeout(() => {
+      setDisplayMsg(false);
+    }, 2000);
+  };
   const { title, imageUrl, rating, discountedPrice, price, description, reviews } = product;
-  if (reviews) {
-    console.log(reviews);
-  }
   return (
     <ProductContainer>
+      {displayMsg && <ScreenMsg msg={`${title} added to cart!`} state={setDisplayMsg} />}
       <div>
         <img src={imageUrl} alt={title}></img>
       </div>
@@ -32,7 +40,14 @@ const Product = ({ product }) => {
             <p>NOK {price}</p>
           )}
         </div>
-        <StyledButton>Add to cart</StyledButton>
+        <StyledButton
+          onClick={() => {
+            addProduct(product);
+            HandleMsgState();
+          }}
+        >
+          Add to cart
+        </StyledButton>
         <ReviewContainer>
           <p>Reviews:</p>
 

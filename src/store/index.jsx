@@ -13,11 +13,15 @@ const loadProductsFromLocalStorage = () => {
 
 export const useCartStore = create((set, get) => ({
   products: loadProductsFromLocalStorage(),
+
   addProduct: (product) => {
     const products = get().products;
     const productIndex = products.findIndex((p) => p.id === product.id);
+
     let updatedProducts;
+
     if (productIndex !== -1) {
+      console.log("working");
       const updatedProduct = {
         ...products[productIndex],
         count: products[productIndex].count + 1,

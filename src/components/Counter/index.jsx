@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 import { useCartStore } from "../../store";
+import CounterContainer from "./index.styles";
 
 const Counter = ({ CartItem, onCountChange }) => {
   const setProductCount = useCartStore((state) => state.setProductCount);
-  const [count, setCount] = useState(CartItem.Count || 1);
+  const [count, setCount] = useState(CartItem.count);
   let plusCount = 1;
   let minusCount = 1;
   const handlePlus = () => {
@@ -21,11 +22,11 @@ const Counter = ({ CartItem, onCountChange }) => {
     setProductCount(CartItem.id, count);
   }, [count, CartItem.id, setProductCount]);
   return (
-    <div>
+    <CounterContainer>
       <button onClick={handleMinus}>-</button>
       <span>{count}</span>
       <button onClick={handlePlus}>+</button>
-    </div>
+    </CounterContainer>
   );
 };
 

@@ -5,13 +5,24 @@ import { StyledCard, InfoContainer, ImgContainer, RatingContainer, BtnContainer,
 import { StyledButton } from "../Button/index.styles";
 import { Link } from "react-router-dom";
 import { useCartStore } from "../../store";
+import { useState } from "react";
+import ScreenMsg from "../ScreenMsg";
 
 const Card = ({ data }) => {
   let { title, price, imageUrl, rating, id, discountedPrice } = data;
   const addProduct = useCartStore((state) => state.addProduct);
+  const [displayMsg, setDisplayMsg] = useState(false);
+
+  const HandleMsgState = () => {
+    setDisplayMsg(true);
+    setTimeout(() => {
+      setDisplayMsg(false);
+    }, 2000);
+  };
 
   return (
     <StyledCard>
+      {displayMsg && <ScreenMsg msg={`${title} added to cart!`} state={setDisplayMsg} />}
       <ImgContainer>
         <img src={imageUrl} alt={title} />
       </ImgContainer>
@@ -34,6 +45,7 @@ const Card = ({ data }) => {
           <FaCartShopping
             onClick={() => {
               addProduct(data);
+              HandleMsgState();
             }}
           />
           <Link to={`/products/${id}`}>

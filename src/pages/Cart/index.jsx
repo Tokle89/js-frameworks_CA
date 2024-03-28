@@ -1,22 +1,39 @@
 import { useCartStore } from "../../store";
 import { FaCartShopping } from "react-icons/fa6";
 import Counter from "../../components/Counter";
+import { CartContainer, CartItem, CartTotal, HeaderContainer } from "./index.styles";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { StyledButton } from "../../components/Button/index.styles";
 
 const Cart = () => {
   const products = useCartStore((state) => state.getProducts());
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const calculateTotalPrice = () => {
+    let sum = 0;
+    products.forEach((product) => {
+      sum += product.price * product.count;
+    });
+    setTotalPrice(sum);
+  };
+
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [products]);
+
   return (
     <main>
-      <div>
+      <HeaderContainer>
         <h1>Shopping Cart</h1>
         <FaCartShopping />
-      </div>
-      <div>
+      </HeaderContainer>
+      <CartContainer>
         {(products.length > 0 &&
           products.map((product) => {
             const { id, title, imageUrl, price, count } = product;
             let productPrice = price * count;
             const handleCountChange = (newCount) => {
-              console.log("Count changed", newCount);
               if (newCount === 0) {
                 useCartStore.getState().removeProduct(id);
               } else {
@@ -26,18 +43,27 @@ const Cart = () => {
             };
 
             return (
-              <div key={id}>
+              <CartItem key={id}>
                 <div>
                   <img src={imageUrl} alt={title} />
                 </div>
-                <h2>{title}</h2>
-                <p>Nok: {productPrice}</p>
-                <p>Quantity: {count}</p>
-                <Counter CartItem={product} onCountChange={handleCountChange}></Counter>
-              </div>
+                <div>
+                  <h2>{title}</h2>
+                  <p>Nok: {productPrice.toFixed(2)}</p>
+                  <p>Quantity: {count}</p>
+                  <Counter CartItem={product} onCountChange={handleCountChange}></Counter>
+                </div>
+              </CartItem>
             );
           })) || <p>No products in cart</p>}
-      </div>
+
+        <CartTotal>
+          <h3>Total: {totalPrice.toFixed(2)} Kr</h3>
+          <Link to="/checkout">
+            <StyledButton>CheckOut</StyledButton>
+          </Link>
+        </CartTotal>
+      </CartContainer>
     </main>
   );
 };

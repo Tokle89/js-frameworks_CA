@@ -30,3 +30,22 @@ export const NavFooter = styled(Nav)`
     }
   }
 `;
+
+export const CartWrapper = styled.div`
+  position: relative;
+`;
+
+export const CartCounter = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  border-radius: 50%;
+  background-color: #FFD1D1;
+  color: #000;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+  display flex;
+  justify-content: center;
+  align-items: center;
+`;
