@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { Flex, FlexColumn } from "../../styles/Flex";
 
 export const ProductContainer = styled(Flex)`
-  max-width: 1250px;
   width: 100%;
+  height: 700px;
+
   display: flex;
   > * {
     flex: 1;

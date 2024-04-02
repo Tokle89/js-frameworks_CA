@@ -18,7 +18,7 @@ body {
 
 main {
     background: var(--color-tertiary);
-    max-width: 1250px;
+    max-width: 1200px;
     margin: 0 auto;
     padding:50px 0;
   }

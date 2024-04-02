@@ -8,7 +8,7 @@ const saveProductsToLocalStorage = (products) => {
 // Helper function to load products from local storage
 const loadProductsFromLocalStorage = () => {
   const storedProducts = localStorage.getItem("products");
-  return storedProducts ? JSON.parse(storedProducts) : []; // Return parsed products from local storage or an empty array if no products are found
+  return storedProducts ? JSON.parse(storedProducts) : [];
 };
 
 export const useCartStore = create((set, get) => ({
@@ -53,5 +53,10 @@ export const useCartStore = create((set, get) => ({
     const updatedProducts = products.filter((product) => product.id !== id);
     saveProductsToLocalStorage(updatedProducts);
     set({ products: updatedProducts });
+  },
+
+  clearProducts: () => {
+    localStorage.removeItem("products");
+    set({ products: [] });
   },
 }));

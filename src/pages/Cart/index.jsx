@@ -7,18 +7,17 @@ import { Link } from "react-router-dom";
 import { StyledButton } from "../../components/Button/index.styles";
 
 const Cart = () => {
-  const products = useCartStore((state) => state.getProducts());
+  const products = useCartStore((state) => state.products);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const calculateTotalPrice = () => {
-    let sum = 0;
-    products.forEach((product) => {
-      sum += product.price * product.count;
-    });
-    setTotalPrice(sum);
-  };
-
   useEffect(() => {
+    const calculateTotalPrice = () => {
+      let sum = 0;
+      products.forEach((product) => {
+        sum += product.price * product.count;
+      });
+      setTotalPrice(sum);
+    };
     calculateTotalPrice();
   }, [products]);
 
@@ -55,13 +54,21 @@ const Cart = () => {
                 </div>
               </CartItem>
             );
-          })) || <p>No products in cart</p>}
+          })) || <h3>No products in cart</h3>}
 
-        <CartTotal>
-          <h3>Total: {totalPrice.toFixed(2)} Kr</h3>
-          <Link to="/checkout">
-            <StyledButton>CheckOut</StyledButton>
-          </Link>
+        <CartTotal hasProducts={products.length > 0}>
+          {products.length > 0 ? (
+            <div>
+              <h3>Total: {totalPrice.toFixed(2)} Kr</h3>
+              <Link to="/checkout">
+                <StyledButton>CheckOut</StyledButton>
+              </Link>
+            </div>
+          ) : (
+            <Link to="/home">
+              <StyledButton> Home</StyledButton>
+            </Link>
+          )}
         </CartTotal>
       </CartContainer>
     </main>

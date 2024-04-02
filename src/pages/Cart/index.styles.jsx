@@ -15,6 +15,11 @@ export const CartContainer = styled(JustifiedCenter)`
   align-items: center;
   background-color: var(--color-secondary);
   padding: 20px;
+  min-height: 250px;
+  min-width: 300px;
+  h3 {
+    margin-bottom: 20px;
+  }
 `;
 
 export const CartItem = styled(Flex)`
@@ -45,10 +50,10 @@ export const CartItem = styled(Flex)`
 export const CartTotal = styled(Flex)`
   border-top: 1px solid var(--color-primary);
   width: 100%;
-  justify-content: space-between;
+  justify-content: ${(props) => (props.hasProducts ? "space-between" : "center")};
   padding-top: 20px;
   align-items: end;
-  @media (max-width: 468px) {
+  @media (max-width: 400px) {
     flex-direction: column;
     gap: 20px;
     align-items: center;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-padding:0 20px;
+padding:20px 20px;
 h1{
   text-align:center;
   margin:30px 0px;}

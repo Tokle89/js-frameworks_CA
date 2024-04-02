@@ -14,11 +14,14 @@ const HeaderNav = () => {
   const toggleSearchBar = () => {
     setShowSearchBar((prev) => !prev);
   };
+  const closeSearchBar = () => {
+    setShowSearchBar(false);
+  };
   return (
     <Nav>
       <button type="button">
         <FaSearch onClick={toggleSearchBar} />
-        {showSearchBar && <Search />}
+        {showSearchBar && <Search onClose={closeSearchBar} />}
       </button>
       <Link to="/">
         <FaHouse />
