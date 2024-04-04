@@ -3,8 +3,11 @@ import { Form, StyledH1 } from "./index.styles";
 import { StyledButton } from "../../components/Button/index.styles";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import RenderPageTitle from "../../components/PageTitle";
 
 const Contact = () => {
+  RenderPageTitle({ title: "E-com | Contact us" });
+
   const schema = yup.object({
     fullName: yup.string().min(3, `You must enter at least 3 characters`).max(100, `Your Full Name cannot be longer then 100 characters`).required(),
     subject: yup.string().min(3, `You must enter at least 3 characters`).max(100, `Your Subject cannot be longer then 100 characters`).required(),

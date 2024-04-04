@@ -1,10 +1,11 @@
 import Main from "./index.styles";
 import { useCartStore } from "../../store";
+import RenderPageTitle from "../../components/PageTitle";
 
 const Checkout = () => {
   const clearProducts = useCartStore((state) => state.clearProducts);
   clearProducts();
-
+  RenderPageTitle({ title: "E-com | Checkout" });
   return (
     <Main>
       <div>

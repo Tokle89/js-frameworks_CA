@@ -3,7 +3,7 @@ import { Flex, FlexColumn } from "../../styles/Flex";
 
 export const ProductContainer = styled(Flex)`
   width: 100%;
-  height: 700px;
+  min-height: 700px;
 
   display: flex;
   > * {

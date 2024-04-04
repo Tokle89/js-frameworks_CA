@@ -5,11 +5,13 @@ import { CartContainer, CartItem, CartTotal, HeaderContainer } from "./index.sty
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { StyledButton } from "../../components/Button/index.styles";
+import RenderPageTitle from "../../components/PageTitle";
 
 const Cart = () => {
   const products = useCartStore((state) => state.products);
   const [totalPrice, setTotalPrice] = useState(0);
 
+  RenderPageTitle({ title: "E-com | Cart" });
   useEffect(() => {
     const calculateTotalPrice = () => {
       let sum = 0;
