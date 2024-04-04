@@ -2,7 +2,7 @@ import HeaderNav from "../../Navigation/Header";
 
 import { HeaderFooterWrapper } from "../index.styles";
 
-import Logo from "../../Logo";
+import Logo from "../../Logosd";
 
 const Header = () => (
   <header>

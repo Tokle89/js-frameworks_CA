@@ -1,5 +1,5 @@
 import FooterNav from "../../Navigation/Footer";
-import Logo from "../../Logo";
+import Logo from "../../Logosd";
 import { HeaderFooterWrapper } from "../index.styles";
 
 const Footer = () => (
