@@ -42,12 +42,24 @@ export const HeaderContainer = styled(Flex)`
 `;
 
 export const DiscountedPrice = styled(Flex)`
-  gap: 50px;
+  gap: 10px;
+  margin: 10px 0;
+  flex-wrap: wrap;
   flex-direction: row-reverse;
   justify-content: flex-end;
-  p:first-of-type {
-    text-decoration: line-through;
+  p {
+    margin: 0;
+  }
+  p:nth-child(1),
+  p:nth-child(2) {
     color: red;
+  }
+  p:nth-child(1) {
+    flex-basis: 100%;
+    margin: 0;
+  }
+  p:nth-child(2) {
+    text-decoration: line-through;
   }
 `;
 export const ReviewContainer = styled(Flex)`

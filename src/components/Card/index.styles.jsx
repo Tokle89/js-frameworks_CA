@@ -44,8 +44,15 @@ export const BtnContainer = styled(JustifiedSpaceBetween)`
 `;
 
 export const DiscountedPrice = styled(JustifiedSpaceBetween)`
-  p:first-of-type {
-    text-decoration: line-through;
+  flex-wrap: wrap;
+  p:nth-child(1),
+  p:nth-child(2) {
     color: red;
+  }
+  p:nth-child(1) {
+    flex-basis: 100%;
+  }
+  p:nth-child(2) {
+    text-decoration: line-through;
   }
 `;

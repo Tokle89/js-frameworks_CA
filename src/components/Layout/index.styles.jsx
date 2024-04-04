@@ -6,6 +6,7 @@ export const HeaderFooterWrapper = styled(JustifiedSpaceBetween)`
   margin: 0 auto;
   align-items: center;
   padding: 20px;
+  min-height: 91px;
   a {
     color: #fff;
   }

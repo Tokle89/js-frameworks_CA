@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaHouse, FaCartShopping, FaCircleQuestion } from "react-icons/fa6";
 import { FaSearch } from "react-icons/fa";
 import { Nav, CartWrapper, CartCounter } from "../index.styles";
@@ -23,18 +23,18 @@ const HeaderNav = () => {
         <FaSearch onClick={toggleSearchBar} />
         {showSearchBar && <Search onClose={closeSearchBar} />}
       </button>
-      <Link to="/">
+      <NavLink to="/">
         <FaHouse />
-      </Link>
-      <Link to="/contact">
+      </NavLink>
+      <NavLink to="/contact">
         <FaCircleQuestion />
-      </Link>
-      <Link to="/cart">
+      </NavLink>
+      <NavLink to="/cart">
         <CartWrapper>
           <FaCartShopping />
           {cartCounter > 0 && <CartCounter>{cartCounter}</CartCounter>}
         </CartWrapper>
-      </Link>
+      </NavLink>
     </Nav>
   );
 };

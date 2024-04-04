@@ -13,7 +13,11 @@ const Card = ({ data }) => {
   const addProduct = useCartStore((state) => state.addProduct);
   const [displayMsg, setDisplayMsg] = useState(false);
 
-  const HandleMsgState = () => {
+  const calculateDiscount = () => {
+    return Math.floor((discountedPrice / price) * 100);
+  };
+
+  const handleMsgState = () => {
     setDisplayMsg(true);
     setTimeout(() => {
       setDisplayMsg(false);
@@ -35,6 +39,7 @@ const Card = ({ data }) => {
         <div>
           {discountedPrice !== price ? (
             <DiscountedPrice>
+              <p>{calculateDiscount()}% off</p>
               <p>NOK {price}</p> <p>NOK {discountedPrice}</p>
             </DiscountedPrice>
           ) : (
@@ -45,7 +50,7 @@ const Card = ({ data }) => {
           <FaCartShopping
             onClick={() => {
               addProduct(data);
-              HandleMsgState();
+              handleMsgState();
             }}
           />
           <Link to={`/products/${id}`}>

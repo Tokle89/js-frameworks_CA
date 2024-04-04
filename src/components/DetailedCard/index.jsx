@@ -16,6 +16,11 @@ const Product = ({ product }) => {
     }, 2000);
   };
   const { title, imageUrl, rating, discountedPrice, price, description, reviews } = product;
+
+  const calculateDiscount = () => {
+    return Math.floor((discountedPrice / price) * 100);
+  };
+
   return (
     <ProductContainer>
       {displayMsg && <ScreenMsg msg={`${title} added to cart!`} state={setDisplayMsg} />}
@@ -34,6 +39,7 @@ const Product = ({ product }) => {
         <div>
           {discountedPrice !== price ? (
             <DiscountedPrice>
+              <p>{calculateDiscount()}% off</p>
               <p>NOK {price}</p> <p>NOK {discountedPrice}</p>
             </DiscountedPrice>
           ) : (

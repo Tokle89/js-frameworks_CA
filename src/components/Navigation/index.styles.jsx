@@ -5,16 +5,26 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   width: 280px;
-  a {
-    font-size: 2rem;
+
+  a,
+  button {
     color: ${(props) => props.theme.colors.secondary};
-    text-decoration: none;
+    font-size: 2rem;
+    border-radius: 25%;
+    padding: 3px;
+    transition: ease-in-out 0.2s;
+    &:hover {
+      background-color: ${(props) => props.theme.colors.tertiary};
+    }
+  }
+
+  a.active {
+    color: #ffd1d1;
+    border-bottom: 2px solid #ffd1d1;
   }
   button {
     background-color: transparent;
     border: none;
-    font-size: 2rem;
-    color: ${(props) => props.theme.colors.secondary};
     cursor: pointer;
   }
 `;

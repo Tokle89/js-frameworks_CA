@@ -22,6 +22,10 @@ main {
     margin: 0 auto;
     padding:50px 0;
   }
+  a{
+    text-decoration:none;
+  
+  }
 *{
   box-sizing:border-box;
   margin:0;

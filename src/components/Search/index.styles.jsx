@@ -11,11 +11,16 @@ export const SearchWrapper = styled.div`
   background: #fff;
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  min-width: 300px;
+  width: 500px;
   input {
     padding: 5px;
     width: 100%;
     font-size: 1.2rem;
+  }
+  @media (max-width: 720px) {
+    width: 90%;
+
+    top: 5em;
   }
 `;
 export const SearchResult = styled(Flex)`
