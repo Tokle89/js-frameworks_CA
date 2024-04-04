@@ -18,7 +18,7 @@ const Product = ({ product }) => {
   const { title, imageUrl, rating, discountedPrice, price, description, reviews } = product;
 
   const calculateDiscount = () => {
-    return Math.floor((discountedPrice / price) * 100);
+    return ((1 - discountedPrice / price) * 100).toFixed(2);
   };
 
   return (
@@ -39,7 +39,7 @@ const Product = ({ product }) => {
         <div>
           {discountedPrice !== price ? (
             <DiscountedPrice>
-              <p>{calculateDiscount()}% off</p>
+              <p>{calculateDiscount()}% </p>
               <p>NOK {price}</p> <p>NOK {discountedPrice}</p>
             </DiscountedPrice>
           ) : (

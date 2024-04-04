@@ -14,7 +14,7 @@ const Card = ({ data }) => {
   const [displayMsg, setDisplayMsg] = useState(false);
 
   const calculateDiscount = () => {
-    return Math.floor((discountedPrice / price) * 100);
+    return ((1 - discountedPrice / price) * 100).toFixed(0);
   };
 
   const handleMsgState = () => {
@@ -39,7 +39,7 @@ const Card = ({ data }) => {
         <div>
           {discountedPrice !== price ? (
             <DiscountedPrice>
-              <p>{calculateDiscount()}% off</p>
+              <p>{calculateDiscount()}%</p>
               <p>NOK {price}</p> <p>NOK {discountedPrice}</p>
             </DiscountedPrice>
           ) : (

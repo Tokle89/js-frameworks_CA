@@ -67,7 +67,7 @@ const Cart = () => {
               </Link>
             </div>
           ) : (
-            <Link to="/home">
+            <Link to="/">
               <StyledButton> Home</StyledButton>
             </Link>
           )}
