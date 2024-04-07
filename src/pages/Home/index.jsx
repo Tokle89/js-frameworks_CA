@@ -3,6 +3,8 @@ import { Main } from "./index.styles";
 import Card from "../../components/Card";
 import url from "../../constants/url";
 import RenderPageTitle from "../../components/PageTitle";
+import Loader from "../../components/Loader";
+import ScreenMsg from "../../components/ScreenMsg";
 
 const Home = () => {
   RenderPageTitle({ title: "E-com | Home" });
@@ -11,9 +13,9 @@ const Home = () => {
   let content;
 
   if (isError) {
-    content = <p>Error</p>;
+    content = <ScreenMsg msg="An error has occurred, please try again later" />;
   } else if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <Loader></Loader>;
   } else {
     content = data.map((post) => <Card data={post} key={post.id}></Card>);
   }
